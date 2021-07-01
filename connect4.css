@@ -33,3 +33,35 @@
 #column-top td:hover {
   background-color: gold;
 }
+
+/* Overall page CSS */
+body {
+  text-align: center;
+  background-color: lightgoldenrodyellow; 
+} 
+
+.title {
+  font-size: 3em;
+}
+
+.game-container {
+  position: relative;
+}
+
+#playerOneCount {
+  left: 8%;
+  position: absolute;
+  top: 40%;
+  font-size: 25px;
+}
+
+#game table{
+  margin: auto;
+}
+
+#playerTwoCount {
+  left: 75%;
+  position: absolute;
+  top: 40%;
+  font-size: 25px;
+}

@@ -31,7 +31,7 @@ function makeHtmlBoard() {
   const top = document.createElement("tr");
   top.setAttribute("id", "column-top");
   top.addEventListener("click", handleClick);
-
+  
   for (let x = 0; x < WIDTH; x++) {
     let headCell = document.createElement("td");
     headCell.setAttribute("id", x);
@@ -81,11 +81,15 @@ function placeInTable(y, x) {
 
 function endGame(msg) {
   // TODO: pop up alert message
+  // const result = document.getElementById("result");
+  // result.innerText = msg;
+
   alert(msg);
 }
 
 /** handleClick: handle click of column top to play piece */
-
+let playerOneCounter = 0;
+let playerTwoCounter= 0;
 function handleClick(evt) {
   // get x from ID of clicked cell
   let x = +evt.target.id;
@@ -111,6 +115,20 @@ function handleClick(evt) {
   if (board.every((row) => row.every((cell) => cell))) {
     return endGame('Tie!');
   };
+
+  // Counts player's attempts
+  if (currPlayer === 1){
+    playerOneCounter += 1;
+  };
+  if (currPlayer === 2){
+    playerTwoCounter += 1;
+  };
+
+  const playerOneCountDisplay = document.getElementById("playerOneCount");
+  playerOneCountDisplay.innerText = `Player 1: ${playerOneCounter} attempts`;
+
+  const playerTwoCountDisplay = document.getElementById("playerTwoCount");
+  playerTwoCountDisplay.innerText = `Player 2: ${playerTwoCounter} attempts`;
 
   // switch players
   // TODO: switch currPlayer 1 <-> 2
